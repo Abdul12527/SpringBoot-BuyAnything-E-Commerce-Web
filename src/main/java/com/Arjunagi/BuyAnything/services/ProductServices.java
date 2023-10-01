@@ -12,19 +12,15 @@ import java.util.List;
 public class ProductServices {
     @Autowired
     IProductRepo productRepo;
-
     public List<Product> getAllProducts() {
         return productRepo.findAll();
     }
-
     public void addProduct(Product product) {
         productRepo.save(product);
     }
-
     public List<Product> getAllByCategory(Category category) {
         return productRepo.findByCategory(category);
     }
-
     public String deleteById(Integer id) {
         productRepo.deleteById(id);
         return "deleted sucessfully";

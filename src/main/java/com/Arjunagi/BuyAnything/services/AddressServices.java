@@ -11,11 +11,9 @@ import java.util.List;
 public class AddressServices {
     @Autowired
     IAddressRepo addressRepo;
-
     public void AddAddress(Address address) {
         addressRepo.save(address);
     }
-
     public List<Address> getAllAddress() {
         return addressRepo.findAll();
     }

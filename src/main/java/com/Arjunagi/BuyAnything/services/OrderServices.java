@@ -11,15 +11,12 @@ import java.util.List;
 public class OrderServices {
     @Autowired
     IOrderRepo orderRepo;
-
     public void addOrder(UserOrder order) {
         orderRepo.save(order);
     }
-
     public List<UserOrder> getAllOrders() {
         return orderRepo.findAll();
     }
-
     public UserOrder getById(Integer id) {
         return orderRepo.findById(id).orElseThrow();
     }
