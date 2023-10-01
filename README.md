@@ -101,7 +101,7 @@ Buy Anything is an e-commerce website backend that provides users with APIs to i
 
 ## Database
 The project uses MySQL database for storing data.
-![Local Image](QuickDBD-Free Diagram.png)
+![Local Image](./QuickDBD-Free%20Diagram.png)
 
 ## Prerequisites
 Make sure you have the following prerequisites installed:
