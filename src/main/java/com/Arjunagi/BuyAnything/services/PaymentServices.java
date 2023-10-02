@@ -19,4 +19,8 @@ public class PaymentServices {
     public List<Payment> getAll() {
         return paymentRepo.findAll();
     }
+
+    public List<Payment> getAllByUserId(Integer userId) {
+        return paymentRepo.findByUserId(userId);
+    }
 }

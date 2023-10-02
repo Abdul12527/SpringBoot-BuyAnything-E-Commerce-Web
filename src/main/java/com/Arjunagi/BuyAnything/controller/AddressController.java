@@ -1,12 +1,10 @@
 package com.Arjunagi.BuyAnything.controller;
 
 import com.Arjunagi.BuyAnything.models.Address;
+import com.Arjunagi.BuyAnything.models.User;
 import com.Arjunagi.BuyAnything.services.AddressServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +20,10 @@ public class AddressController {
     @GetMapping("/addresses")
     public List<Address> getAllAddress(){
         return addressServices.getAllAddress();
+    }
+    @GetMapping("/addresses/id/{userId}")
+    public List<Address> getAllForUser(@PathVariable Integer userId){
+        return addressServices.getAllForUser(userId);
     }
 
 }

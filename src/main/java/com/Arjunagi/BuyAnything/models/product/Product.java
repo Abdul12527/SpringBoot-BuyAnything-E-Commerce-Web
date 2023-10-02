@@ -20,4 +20,5 @@ public class Product {
     private Category category;
     @Enumerated(EnumType.STRING)
     private Brand brand;
+    private Boolean available;
 }

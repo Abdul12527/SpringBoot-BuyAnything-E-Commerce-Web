@@ -17,4 +17,8 @@ public class AddressServices {
     public List<Address> getAllAddress() {
         return addressRepo.findAll();
     }
+
+    public List<Address> getAllForUser(Integer userId) {
+        return addressRepo.findByUserId(userId);
+    }
 }
