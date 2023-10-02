@@ -1,6 +1,6 @@
 package com.Arjunagi.BuyAnything.services;
 
-import com.Arjunagi.BuyAnything.models.UserOrder;
+import com.Arjunagi.BuyAnything.models.order.UserOrder;
 import com.Arjunagi.BuyAnything.repository.IOrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

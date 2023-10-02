@@ -1,5 +1,8 @@
-package com.Arjunagi.BuyAnything.models;
+package com.Arjunagi.BuyAnything.models.order;
 
+import com.Arjunagi.BuyAnything.models.Address;
+import com.Arjunagi.BuyAnything.models.User;
+import com.Arjunagi.BuyAnything.models.payment.Payment;
 import com.Arjunagi.BuyAnything.models.product.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,8 +25,14 @@ public class UserOrder {
     @ManyToOne
     @JoinColumn(name = "fkUserId")
     private User user;
+
+    @OneToOne
+    @JoinColumn(name = "fkPaymentId")
+    private Payment payment;
     @ManyToMany
     @JoinTable(name = "fk_product_order_table",joinColumns = @JoinColumn(name = "fk_order"),
             inverseJoinColumns = @JoinColumn(name = "fk_products"))
     private List<Product> products;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 }

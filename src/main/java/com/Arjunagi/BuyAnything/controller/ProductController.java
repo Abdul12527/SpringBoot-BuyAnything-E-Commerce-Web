@@ -24,7 +24,7 @@ public class ProductController {
     public List<Product> getAllByCategory(@RequestParam Category category){
         return productServices.getAllByCategory(category);
     }
-    @GetMapping("/product/id/{id}")
+    @DeleteMapping("/product/id/{id}")
     public String deleteById(@PathVariable Integer id){
         return productServices.deleteById(id);
     }

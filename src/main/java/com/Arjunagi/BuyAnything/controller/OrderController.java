@@ -1,7 +1,6 @@
 package com.Arjunagi.BuyAnything.controller;
 
-import com.Arjunagi.BuyAnything.models.User;
-import com.Arjunagi.BuyAnything.models.UserOrder;
+import com.Arjunagi.BuyAnything.models.order.UserOrder;
 import com.Arjunagi.BuyAnything.services.OrderServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
