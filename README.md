@@ -32,6 +32,7 @@ Buy Anything is an e-commerce website backend that provides users with APIs to i
   - `orderQuantity (Integer)`: Quantity of the products in the order.
   - `user (User)`: User who placed the order.
   - `products (List<Product>)`: List of products in the order.
+  - `Status(Status)`: userOrder Status(Enum:[PlACED, PENDING, FAIL]).
 
 ### Address Entity
 - **Attributes:**
@@ -42,12 +43,18 @@ Buy Anything is an e-commerce website backend that provides users with APIs to i
   - `zipcode (String)`: Zipcode of the address.
   - `state (String)`: State of the address.
   - `user (User)`: User associated with the address.
-
+### Payment Entity
+-**Atteributes**
+- `id(Integer)`:Unique identifier for each Payment.
+- `amount(Double`:The total aount paid.
+- `user(User)`:User Associated with payment
+- `status(Status)`: Payment Status(Enum:[SUCCESS, FAIL, PROCESSING]).
 ## Repositories
 - `IAddressRepo`: Interface extending JpaRepository for the Address entity.
 - `IOrderRepo`: Interface extending JpaRepository for the UserOrder entity.
 - `IProductRepo`: Interface extending JpaRepository for the Product entity with custom query methods.
 - `IUserRepo`: Interface extending JpaRepository for the User entity.
+- `IPaymentRepo`: Interface extending JpaRepository for the payment entity.
 
 ## Controllers
 ### AddressController
@@ -66,14 +73,17 @@ Buy Anything is an e-commerce website backend that provides users with APIs to i
   - `POST /product`: Add a new product by providing product details in the request body.
   - `GET /products`: Retrieve a list of all products.
   - `GET /products/category`: Retrieve products by category.
-  - `GET /product/id/{id}`: Delete a product by its ID.
+  - `DELETE /product/id/{id}`: Delete a product by its ID.
 
 ### UserController
 - **Endpoints:**
   - `POST /user`: Add a new user by providing user details in the request body.
   - `GET /users`: Retrieve a list of all users.
   - `GET /user/id/{id}`: Retrieve a user by their ID.
-
+### PaymentController
+- **Endpoints:**
+  - `POST /payment`: Add a new payment by providing payment details in the request body.
+  - `GET /payments`: Retrieve a list of all payments.
 ## Services
 ### AddressServices
 - Manages address-related operations.
@@ -99,6 +109,11 @@ Buy Anything is an e-commerce website backend that provides users with APIs to i
 - `getAll`: Retrieve all users from the database.
 - `getbyId`: Retrieve a user by their ID from the database.
 
+### PaymentServices
+- Manages payment-related operations.
+- `AddPayment`: Add a new address to the database.
+- `getAllPayments`: Retrieve all addresses from the database.
+  
 ## Database
 The project uses MySQL database for storing data.
 ![Local Image](./QuickDBD-Free%20Diagram1.png)
