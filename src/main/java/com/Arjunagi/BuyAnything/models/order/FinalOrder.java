@@ -25,6 +25,7 @@ public class FinalOrder {
     @OneToMany
     @JoinColumn(name = "fkFinalOrderId")
     private List<CartItem> cartItems;
+    private Integer orderQuantity;
     @ManyToOne
     @JoinColumn(name = "fkFinalOrderId")
     private Address address;

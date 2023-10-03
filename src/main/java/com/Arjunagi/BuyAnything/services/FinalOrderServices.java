@@ -13,6 +13,7 @@ public class FinalOrderServices {
     IFinalOrderRepo finalOrderRepo;
 
     public void addFinalOrder(FinalOrder finalOrder) {
+        finalOrder.setOrderQuantity(finalOrder.getCartItems().size());
         finalOrderRepo.save(finalOrder);
     }
 
