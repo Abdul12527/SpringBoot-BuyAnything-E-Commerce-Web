@@ -29,5 +29,8 @@ public class FinalOrder {
     @OneToOne
     @JoinColumn(name = "fkPaymentId")
     private Payment payment;
+    @ManyToOne
+    @JoinColumn(name = "fkaddress")
+    private Address address;
     private Status status;
 }

@@ -14,6 +14,7 @@ public class FinalOrderServices {
 
     public void addFinalOrder(FinalOrder finalOrder) {
         finalOrder.setOrderQuantity(finalOrder.getCartItems().size());
+        finalOrder.setAddress(finalOrder.getUser().getAddress().stream().filter(o-> o.isSelected()).findFirst().orElseThrow());
         finalOrderRepo.save(finalOrder);
     }
 

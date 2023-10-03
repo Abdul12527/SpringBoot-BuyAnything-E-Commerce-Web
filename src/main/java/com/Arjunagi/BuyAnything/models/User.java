@@ -18,13 +18,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @NotBlank
     private String name;
     private String email;
+
     @NotBlank
     private String password;
     private String phoneNumber;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Address> address;
 }
