@@ -26,9 +26,6 @@ public class FinalOrder {
     @JoinColumn(name = "fkFinalOrderId")
     private List<CartItem> cartItems;
     private Integer orderQuantity;
-    @ManyToOne
-    @JoinColumn(name = "fkFinalOrderId")
-    private Address address;
     @OneToOne
     @JoinColumn(name = "fkPaymentId")
     private Payment payment;

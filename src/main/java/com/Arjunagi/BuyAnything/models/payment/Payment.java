@@ -1,6 +1,7 @@
 package com.Arjunagi.BuyAnything.models.payment;
 
 import com.Arjunagi.BuyAnything.models.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,8 @@ public class Payment {
     private Integer id;
     @NotNull
     private Double amount;
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne()
     private User user;
     @Enumerated(EnumType.STRING)
     private Status status;

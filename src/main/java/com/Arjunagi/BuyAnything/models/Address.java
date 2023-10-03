@@ -1,5 +1,6 @@
 package com.Arjunagi.BuyAnything.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,8 @@ public class Address {
     private String zipcode;
     private String state;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "fkUserId")
     private User user;
+    private boolean selected;
 }

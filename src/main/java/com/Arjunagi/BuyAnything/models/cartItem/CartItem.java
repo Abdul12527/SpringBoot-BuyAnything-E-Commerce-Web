@@ -2,6 +2,7 @@ package com.Arjunagi.BuyAnything.models.cartItem;
 
 import com.Arjunagi.BuyAnything.models.User;
 import com.Arjunagi.BuyAnything.models.product.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,7 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Integer id;
 
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "fkUserId")
     private User user;
