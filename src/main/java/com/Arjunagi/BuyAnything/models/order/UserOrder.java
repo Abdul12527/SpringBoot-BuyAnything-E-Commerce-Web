@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashMap;
 import java.util.List;
 @Data
 @AllArgsConstructor
@@ -32,7 +33,7 @@ public class UserOrder {
     @ManyToMany
     @JoinTable(name = "fk_product_order_table",joinColumns = @JoinColumn(name = "fk_order"),
             inverseJoinColumns = @JoinColumn(name = "fk_products"))
-    private List<Product> products;
+    private HashMap<Product,Integer> products;
     @Enumerated(EnumType.STRING)
     private Status status;
 }
