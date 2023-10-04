@@ -21,7 +21,5 @@ public class PaymentController {
     public List<Payment> getAll(){
         return paymentServices.getAll();
     }
-    @GetMapping("/payments/userid/{userId}")
-    public List<Payment> getAllByUserId(@PathVariable Integer userId){return paymentServices.getAllByUserId(userId);}
 
 }

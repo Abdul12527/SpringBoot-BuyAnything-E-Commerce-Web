@@ -2,6 +2,7 @@ package com.Arjunagi.BuyAnything.services;
 
 import com.Arjunagi.BuyAnything.models.Address;
 import com.Arjunagi.BuyAnything.repository.IAddressRepo;
+import com.Arjunagi.BuyAnything.repository.IUserRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +13,10 @@ import java.util.List;
 public class AddressServices {
     @Autowired
     IAddressRepo addressRepo;
-    public void AddAddress(Address address) {
-        if(address.isSelected())addressRepo.updateAll(false);
+    @Autowired
+    IUserRepo userRepo;
+    public void AddAddress(Address address, Integer id) {
+        address.setUser(userRepo.findById(id).orElseThrow());
         addressRepo.save(address);
     }
     @Transactional

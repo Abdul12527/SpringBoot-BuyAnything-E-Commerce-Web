@@ -1,5 +1,5 @@
 package com.Arjunagi.BuyAnything.models.payment;
 
-public enum Status {
+public enum PaymentStatus {
     SUCCESS,FAIL,PROCESSING
 }

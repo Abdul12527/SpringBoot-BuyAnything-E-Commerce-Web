@@ -13,9 +13,9 @@ public class AddressController {
     @Autowired
     AddressServices addressServices;
 
-    @PostMapping("/address")
-    public void AddAddress(@RequestBody Address address){
-        addressServices.AddAddress(address);
+    @PostMapping("/address/user/id/{id}")
+    public void AddAddress(@RequestBody Address address,@PathVariable Integer id){
+        addressServices.AddAddress(address,id);
     }
     @GetMapping("/addresses")
     public List<Address> getAllAddress(){

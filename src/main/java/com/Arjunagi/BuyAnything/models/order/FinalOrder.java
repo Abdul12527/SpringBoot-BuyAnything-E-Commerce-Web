@@ -4,6 +4,7 @@ import com.Arjunagi.BuyAnything.models.Address;
 import com.Arjunagi.BuyAnything.models.User;
 import com.Arjunagi.BuyAnything.models.cartItem.CartItem;
 import com.Arjunagi.BuyAnything.models.payment.Payment;
+import com.Arjunagi.BuyAnything.models.product.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,9 +23,10 @@ public class FinalOrder {
     @ManyToOne
     @JoinColumn(name = "fkUserId")
     private User user;
+    private List<Integer> cartIds;
     @OneToMany
     @JoinColumn(name = "fkFinalOrderId")
-    private List<CartItem> cartItems;
+    private List<Product> products;
     private Integer orderQuantity;
     @OneToOne
     @JoinColumn(name = "fkPaymentId")
@@ -32,5 +34,5 @@ public class FinalOrder {
     @ManyToOne
     @JoinColumn(name = "fkaddress")
     private Address address;
-    private Status status;
+    private FinalOrderStatus status;
 }
