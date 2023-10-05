@@ -19,6 +19,7 @@ public class Address {
     private String phoneNumber;
     private String zipcode;
     private String state;
+
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "fkUserId")

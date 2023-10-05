@@ -28,8 +28,10 @@ public class PaymentServices {
             FinalOrder finalOrder=finalOrderRepo.findById(payment.getFinalOrder().getId()).orElseThrow();
             if (payment.getPaymentStatus() == PaymentStatus.SUCCESS) {
                 finalOrder.setStatus(FinalOrderStatus.PlACED);
-                finalOrderServices.addProductsFromCartIds(finalOrder);
-                finalOrderServices.deleteCartItems(finalOrder.getCartIds());
+                if(finalOrder.getProducts()==null) {
+                    finalOrderServices.addProductsFromCartIds(finalOrder);
+                    finalOrderServices.deleteCartItems(finalOrder.getCartIds());
+                }
             }
             if (payment.getPaymentStatus() == PaymentStatus.PROCESSING)
                 finalOrder.setStatus(FinalOrderStatus.PROCESSING);

@@ -13,12 +13,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private Double price;
-    private String description;
-    @Enumerated(EnumType.STRING)
-    private Category category;
-    @Enumerated(EnumType.STRING)
-    private Brand brand;
-    private Boolean available;
+    @ManyToOne
+    @JoinColumn(name = "fkProductFace")
+    private ProductFace productFace;
 }

@@ -23,6 +23,7 @@ public class FinalOrder {
     @ManyToOne
     @JoinColumn(name = "fkUserId")
     private User user;
+    @Transient
     private List<Integer> cartIds;
     @OneToMany
     @JoinColumn(name = "fkFinalOrderId")
@@ -32,7 +33,7 @@ public class FinalOrder {
     @JoinColumn(name = "fkPaymentId")
     private Payment payment;
     @ManyToOne
-    @JoinColumn(name = "fkaddress")
+    @JoinColumn(name = "fkAddress")
     private Address address;
     private FinalOrderStatus status;
 }
